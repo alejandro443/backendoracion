@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -52,6 +53,22 @@ public class Pedido_OracionServiceV {
 				return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 			}
 		}
+		
+		@GetMapping("/todo")
+		public ResponseEntity<List<Map<String, Object>> > SP_LISTA_COMENTARIO(){
+			try {
+				 List<Map<String, Object>> list = new ArrayList<>();
+				list = pedidooracionseviceimpl.SP_LISTA_COMENTARIO();
+				if(list.isEmpty()) {
+					return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+				}
+				return new ResponseEntity<>(list, HttpStatus.OK);
+			} catch (Exception e) {
+				// TODO: handle exception
+				return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+		}
+		
 		//---------------------------------------------------------------------------------------------
 		@PutMapping("/update/{id}")
 		public ResponseEntity<Pedido_Oracion> update(@RequestBody Pedido_Oracion alum, @PathVariable("id") int id){

@@ -31,6 +31,8 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="tbl_beneficiario")
 public class Beneficiario {
+	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_beneficiario;
@@ -63,8 +65,7 @@ public class Beneficiario {
 //	private Pedido_Oracion pedido_oracion;
     @JsonIgnore
 	@OneToMany(mappedBy = "beneficiario",cascade =CascadeType.ALL,orphanRemoval = true)
-	
-	private List<Pedido_Oracion> pedido_oracion;
+private List<Pedido_Oracion> pedido_oracion;
 	
 	
 	

@@ -1,6 +1,7 @@
 package com.example.demo.serviImpl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,6 +44,12 @@ public class Pedido_OracionServiceImpl implements Spedido_oracion{
 	public Pedido_Oracion update(Pedido_Oracion al) {
 		// TODO Auto-generated method stub
 		return pediso_oracionrepository.save(al);
+	}
+
+	@Override
+	public List<Map<String, Object>> SP_LISTA_COMENTARIO() {
+		// TODO Auto-generated method stub
+		return pediso_oracionrepository.SP_LISTA_COMENTARIO();
 	}
 
 }
